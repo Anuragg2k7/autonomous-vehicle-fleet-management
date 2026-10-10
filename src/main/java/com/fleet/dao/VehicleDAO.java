@@ -1,0 +1,4 @@
+package com.fleet.dao;
+import com.fleet.model.Vehicle; import com.fleet.util.DBConnection; import java.sql.*; import java.util.*;
+/** Reads vehicle records from MySQL. */
+public class VehicleDAO { public List<Vehicle> findAll() throws SQLException { List<Vehicle> out=new ArrayList<>(); String q="SELECT vehicle_code,status,battery_percent,health_status,current_location FROM vehicles ORDER BY vehicle_id"; try(Connection c=DBConnection.getConnection(); PreparedStatement p=c.prepareStatement(q); ResultSet r=p.executeQuery()){while(r.next())out.add(new Vehicle(r.getString(1),r.getString(2),r.getInt(3),r.getString(4),r.getString(5)));} return out; } }
