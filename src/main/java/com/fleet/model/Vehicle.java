@@ -1,0 +1,2 @@
+package com.fleet.model;
+public class Vehicle { private final String code,status,health,location; private final int battery; public Vehicle(String c,String s,int b,String h,String l){code=c;status=s;battery=b;health=h;location=l;} public String getCode(){return code;} public String getStatus(){return status;} public int getBattery(){return battery;} public String getHealth(){return health;} public String getLocation(){return location;} }
